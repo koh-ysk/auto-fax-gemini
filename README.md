@@ -53,7 +53,15 @@ FAXのpdfファイルがGmailのアドレス宛に送信されてくることを
 ![alt text](image-1.png)
 
 ## Step3: スクリプトの中身を作成
-本gitに記述しているGASを参考に、スクリプトを記述してください。
+本レポジトリに格納しているGASを参考に、スクリプトを記述してください。
+* [gemini.gs](https://github.com/koh-ysk/auto-fax-gemini/blob/main/gemini.gs)
+  * Vertex AIのAPIを叩くための関数群
+* [custom_menu.gs](https://github.com/koh-ysk/auto-fax-gemini/blob/main/custom_menu.gs)
+  * スプレッドシート上にカスタムメニューを描画するための関数
+* [mail_processor.gs](https://github.com/koh-ysk/auto-fax-gemini/blob/main/mail_processor.gs)
+  * メールを監視し、情報を取得するための関数群
+* [ai_processor.gs](https://github.com/koh-ysk/auto-fax-gemini/blob/main/ai_processor.gs)
+  * スプレッドシートを監視し、AI分析を行うための関数群
 管理上、gsファイルを分割していますが、1つのファイルで記述しても問題ありません。
 
 ![alt text](image-2.png)
@@ -111,3 +119,8 @@ FAXのpdfファイルがGmailのアドレス宛に送信されてくることを
 > カスタムメニューを設定しているので、スプレッドシート上からも手動実行できます。
 > 
 > ![alt text](image-4.png)
+
+## プロンプトについて
+スプレットシートのシート`geminiPrompt`にプロンプトを記述してください。
+
+詳しくはエクセルを参考にしてください。
