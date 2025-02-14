@@ -117,10 +117,51 @@ FAXのpdfファイルがGmailのアドレス宛に送信されてくることを
 > ![alt text](images/image-3.png)
 >
 > カスタムメニューを設定しているので、スプレッドシート上からも手動実行できます。
-> 
+>
 > ![alt text](images/image-4.png)
+
+> [!NOTE]
+> スプレッドシートのシート`maiExecuteLog`のLastRowからGASの実行時間までに受信したメールを分析します。
+>
+> 初期値として、2行目に適当な時間を入力してください。
+>
+> 例えば、
+>
+> 2行目に `2025/02/14 12:00:00`と記述
+>
+> GASの`handleMails`が``2025/02/14 12:30:00``に実行された場合
+>
+>30分(`2025/02/14 12:30:00 - 2025/02/14 12:00:00`)間に受信したメールを分析することができます。
+
 
 ## プロンプトについて
 スプレッドシートの`geminiPrompt`にプロンプトを記述してください。
 
 詳しくはエクセルを参考にしてください。
+
+# GASの権限周りの設定について
+各種APIを使用する際に、権限エラーが発生する恐れがあります。
+GASの設定画面から、`appsscript.json`をファイルエディタで編集できるようにしてください。
+![alt text](images/image-6.png)
+
+以下の`appsscript.json`のサンプルjsonを参考にしてください。
+
+```json
+{
+  "timeZone": "Asia/Tokyo",
+  "dependencies": {
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/cloud-platform",
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive",
+    "https://mail.google.com/",
+    "https://www.googleapis.com/auth/script.external_request"
+  ],
+  "runtimeVersion": "V8"
+}
+```
+
+> [!WARNING]
+>　ご自身の環境に合わせて設定してください。

@@ -8,7 +8,8 @@ function handleRows() {
   const lastRow = faxMainSheet.getLastRow();
 
   // 1行ずつ分析
-  for (let i = 1; i <= lastRow; i++) {
+  // ヘッダー行はスキップ
+  for (let i = 2; i <= lastRow; i++) {
     const context = faxMainSheet.getRange("B" + i).getValue();
     // 内容がすでに書き込まれていたらスキップ
     if (context) {
@@ -31,7 +32,7 @@ function callGemini(row) {
   const prompt = getPrompt("EmailAnalysis")
   const fileUrl = faxMainSheet.getRange("D" + row).getValue();
   const fileId = extractFileID(fileUrl);
-  const result = Gemini_common_functions.gemini(prompt, fileId);
+  const result = gemini(prompt, fileId);
 
   insertAnalyzedData(row, result, fileUrl);
 }
