@@ -14,7 +14,7 @@ Eメール宛に転送されてきたFAX(pdf)を、Geminiを用いて分析す�
 ## Geminiについて
 Google Cloud上のプロジェクトでVertex AI APIを有効にする必要があります。
 
-![alt text](image.jpg)
+![alt text](images/image.jpg)
 > [!WARNING]
 > Google Cloud上でプロジェクトを作成した場合は、課金が発生します。
 > 無料枠はありますが、注意しながらご利用ください。
@@ -50,7 +50,7 @@ FAXのpdfファイルがGmailのアドレス宛に送信されてくることを
 ## Step2: 拡張機能からGASを作成
 拡張機能ボタンから`Apps Script`を選択して、GASを作成しましよう。
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 ## Step3: スクリプトの中身を作成
 本レポジトリに格納しているGASを参考に、スクリプトを記述してください。
@@ -64,7 +64,7 @@ FAXのpdfファイルがGmailのアドレス宛に送信されてくることを
   * スプレッドシートを監視し、AI分析を行うための関数群
 管理上、gsファイルを分割していますが、1つのファイルで記述しても問題ありません。
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
 ### 環境変数について
 以下必要な環境変数を列挙しておきます。
@@ -114,11 +114,11 @@ FAXのpdfファイルがGmailのアドレス宛に送信されてくることを
 > [!IMPORTANT]
 > この2つのトリガーを設定することで、プログラムが動作する仕組みになっています。
 >
-> ![alt text](image-3.png)
+> ![alt text](images/image-3.png)
 >
 > カスタムメニューを設定しているので、スプレッドシート上からも手動実行できます。
 > 
-> ![alt text](image-4.png)
+> ![alt text](images/image-4.png)
 
 ## プロンプトについて
 スプレッドシートの`geminiPrompt`にプロンプトを記述してください。
