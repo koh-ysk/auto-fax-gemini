@@ -87,7 +87,7 @@ FAXのpdfファイルがGmailのアドレス宛に送信されてくることを
   - 例: `us-central1`
 - MODEL_ID
   - Vertex AIのモデルID
-  - 例: `gemini-1.5-pro-001`
+  - 例: `gemini-2.0-flash-exp`
 - PROJECT_ID
   - Google CloudのプロジェクトID
   - 例: `sample-project`
